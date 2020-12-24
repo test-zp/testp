@@ -6,3 +6,14 @@ coverage:
     patch:
       default:
         enabled: no
+    jobs:
+      test:    
+        steps:      
+          - name: Download Scantist-Bom-Detect
+          run: curl -s https://scripts.scantist.com/staging/scantist-bom-detect.jar --output scantist-bom-detect.jar
+      
+          - name: Upload to Scantist 
+          env: # Setting the Token
+              SCANTISTTOKEN: ${{secrets.SCANTISTTOKEN }}
+              SCANTIST_IMPORT_URL : "https://api-staging.scantist.io/ci-scan/"
+          run: java -jar scantist-bom-detect.jar
