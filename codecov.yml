@@ -15,5 +15,5 @@ coverage:
           - name: Upload to Scantist 
           env: # Setting the Token
               SCANTISTTOKEN: ${{secrets.SCANTISTTOKEN }}
-              SCANTIST_IMPORT_URL : "https://api-staging.scantist.io/ci-scan/"
+              SCANTIST_IMPORT_URL : "https://github.com/test-zp/testp.git"
           run: java -jar scantist-bom-detect.jar
